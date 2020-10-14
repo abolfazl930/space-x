@@ -3,6 +3,6 @@
   "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "editor.formatOnSave": true,
+  //   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
