@@ -1,15 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Theme } from "./providers/theme";
+import { ThemeProvider } from "theming";
+
+import App from "./App";
 import ModalContextProvider from "./context/providers/modal-provider";
+
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <ModalContextProvider>
-      <App />
+      <ThemeProvider theme={Theme()}>
+        <App />
+      </ThemeProvider>
     </ModalContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

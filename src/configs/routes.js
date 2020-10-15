@@ -2,14 +2,14 @@ import { lazy } from "react";
 
 const routes = [
   {
-    title: "home",
+    title: "HOME",
     path: "/",
     exact: true,
     component: () => lazy(() => import("../pages/home")),
     visibleIn: ["header"],
   },
   {
-    title: "about-us",
+    title: "ABUOT US",
     path: "/about-us",
     exact: true,
     component: () => lazy(() => import("../pages/about-us")),

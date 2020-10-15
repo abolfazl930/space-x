@@ -1,7 +1,8 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import routes from "./configs/routes";
+import Header from "./components/header";
 
 function App() {
   const [data, setData] = useState([]);
@@ -15,8 +16,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/about-us">About</Link>
+        <Header />
         <Suspense fallback={<div></div>}>
           <Switch>
             {routes.map((route, index) => (
