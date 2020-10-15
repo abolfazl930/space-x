@@ -8,8 +8,8 @@ export function Theme() {
   const font = {
     size: {
       firstTitle: "20px",
-      secondTitle: "46px",
-      btn: "14px",
+      secondTitle: "48px",
+      btn: "18px",
     },
     weight: {
       light: "300",
@@ -17,6 +17,7 @@ export function Theme() {
       bold: "bold",
     },
   };
+  const dimen = {};
   const dark = {
     mode: "dark",
     bg: {

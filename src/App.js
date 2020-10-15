@@ -5,14 +5,14 @@ import routes from "./configs/routes";
 import Header from "./components/header";
 
 function App() {
-  const [data, setData] = useState([]);
-  useEffect((e) => {
-    axios
-      .get("https://api.spacexdata.com/v3/launches")
-      .then(function (response) {
-        console.log("response", response);
-      });
-  }, []);
+  // const [data, setData] = useState([]);
+  // useEffect((e) => {
+  //   axios
+  //     .get("https://api.spacexdata.com/v3/launches")
+  //     .then(function (response) {
+  //       console.log("response", response);
+  //     });
+  // }, []);
   return (
     <Router>
       <div>
@@ -24,9 +24,10 @@ function App() {
                 exact
                 key={index}
                 path={route.path}
-                render={(props) => {
+                render={() => {
+                  document.title = `spaceX - ${route.title}`;
                   const Page = route.component();
-                  return <Page {...props} />;
+                  return <Page />;
                 }}
               />
             ))}

@@ -1,12 +1,8 @@
 import React from "react";
-import "./styles.css";
+import { Div } from "./styles";
 
 function CustomContainer(props) {
-  return (
-    <div className={`custom-container ${props.className}`}>
-      {props.children}
-    </div>
-  );
+  return <Div>{props.children}</Div>;
 }
 
 export default CustomContainer;

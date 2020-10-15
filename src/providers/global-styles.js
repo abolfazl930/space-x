@@ -1,11 +1,21 @@
+import { createGlobalStyle } from "styled-components";
+
+import DDinEot from "../assets/fonts/D-DIN.eot";
+import DDinEot2 from "../assets/fonts/D-DIN.eot";
+import DDinWoff2 from "../assets/fonts/D-DIN.woff2";
+import DDinWoff from "../assets/fonts/D-DIN.woff";
+import DDinTtf from "../assets/fonts/D-DIN.ttf";
+import DDinSvg from "../assets/fonts/D-DIN.svg";
+
+const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: "D-DIN";
-  src: url("./assets/fonts/D-DIN.eot");
-  src: url("./assets/fonts/D-DIN.eot?#iefix") format("embedded-opentype"),
-    url("./assets/fonts/D-DIN.woff2") format("woff2"),
-    url("./assets/fonts/D-DIN.woff") format("woff"),
-    url("./assets/fonts/D-DIN.ttf") format("truetype"),
-    url("./assets/fonts/D-DIN.svg#D-DIN") format("svg");
+  src: url(${DDinEot});
+  src: url(${DDinEot2}) format("embedded-opentype"),
+    url(${DDinWoff2}) format("woff2"),
+    url(${DDinWoff}) format("woff"),
+    url(${DDinTtf}) format("truetype"),
+    url(${DDinSvg}) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,6 +27,12 @@ body {
   background-color: #000 !important;
 }
 
+button{
+  font-family: "D-DIN" !important;
+}
+a{
+  text-decoration: none;
+}
 html,
 body,
 div,
@@ -143,3 +159,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+`;
+
+export default GlobalStyle;
