@@ -4,8 +4,39 @@ export const Div = styled.div`
   color: white;
 `;
 
-export const List = styled.div``;
-export const Row = styled.div``;
-export const Col = styled.div`
-  width: ${(props) => props.width && props.width};
+export const List = styled.div`
+  padding-top: ${(props) => props.theme.dimen.large};
+`;
+export const TextFieldHlder = styled.div`
+  margin-bottom: ${(props) => props.theme.dimen.medium};
+`;
+export const Row = styled.div`
+  border-bottom: 1px solid ${(props) => props.theme.border.borderColor2};
+  /* padding: ${(props) => props.theme.dimen.small} 0; */
+  height: 48px;
+`;
+
+export const Col1 = styled.div`
+  width: 85px;
+  font-size: ${(props) => props.theme.font.size.small};
+  color: ${(props) => props.theme.text.textColor2};
+  @media (min-width: 576px) {
+    width: 220px;
+    font-size: ${(props) => props.theme.font.size.btn};
+  }
+`;
+
+export const Col2 = styled.div`
+  color: ${(props) => props.theme.text.textColor1};
+  flex-grow: 1;
+`;
+
+export const Head1 = styled(Col1)`
+  font-size: ${(props) => props.theme.font.size.firstTitle};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+  color: ${(props) => props.theme.text.textColor1};
+`;
+export const Head2 = styled(Col2)`
+  font-size: ${(props) => props.theme.font.size.firstTitle};
+  font-weight: ${(props) => props.theme.font.weight.bold};
 `;

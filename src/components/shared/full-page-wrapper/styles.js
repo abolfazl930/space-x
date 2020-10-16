@@ -8,4 +8,5 @@ export const Div = styled.section`
   height: 100vh;
   padding-top: 100px;
   position: relative;
+  background-attachment: fixed;
 `;

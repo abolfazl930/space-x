@@ -43,6 +43,29 @@ function Luanches(props) {
     }
   };
 
+  const searchHandler = (value, arr, tree, searchTarget) => {
+    let newValue = value.toUpperCase();
+    let newArr = arr;
+    if (newValue) {
+      newArr = newArr.filter((item) =>
+        String(item[tree][searchTarget]).includes(newValue)
+      );
+      return newArr;
+    } else {
+      return allLaunches;
+    }
+  };
+
+  const handleOnChange = (value) => {
+    let searchArr = searchHandler(
+      value,
+      allLaunches,
+      "launch_site",
+      "site_name"
+    );
+    setSearchedLaunches(searchArr);
+  };
+
   //   console.log(ModalActions());
   // const { dispatchOpenModal } = ModalActions();
   // const test = () => {
@@ -62,7 +85,8 @@ function Luanches(props) {
       </StyledFullPageWrapper>
       <ListSection>
         <LaunchesList
-          launches={searchedLaunches ? setAllLaunches : allLaunches}
+          launches={searchedLaunches ? searchedLaunches : allLaunches}
+          onChange={handleOnChange}
         />
       </ListSection>
     </LuancPage>
