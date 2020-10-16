@@ -24,7 +24,7 @@ function Home(props) {
             <TextBox>
               <StyledTitle size="normal">RECENT LAUNCH</StyledTitle>
               <StyledTitle size="large">STARLINK MISSION</StyledTitle>
-              <Link to={"/lunches"}>
+              <Link to={"/launches"}>
                 <Button>watch</Button>
               </Link>
             </TextBox>

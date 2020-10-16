@@ -6,4 +6,5 @@ export const StyledButton = styled.button`
   padding: 16px 48px;
   font-size: ${(props) => props.theme.font.size.btn};
   color: ${(props) => props.theme.text.textColor1};
+  cursor: pointer;
 `;

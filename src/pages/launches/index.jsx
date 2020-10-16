@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { ModalActions } from "../../context/actions/modal-actions";
 import services from "../../services";
 
@@ -17,6 +18,8 @@ import {
 } from "./styles";
 
 function Luanches(props) {
+  let history = useHistory();
+
   const [allLaunches, setAllLaunches] = useState(null);
   const [searchedLaunches, setSearchedLaunches] = useState(null);
 
@@ -66,6 +69,9 @@ function Luanches(props) {
     setSearchedLaunches(searchArr);
   };
 
+  const handleOnClick = (id) => {
+    history.push(`/details/${id}`);
+  };
   //   console.log(ModalActions());
   // const { dispatchOpenModal } = ModalActions();
   // const test = () => {
@@ -86,6 +92,7 @@ function Luanches(props) {
       <ListSection>
         <LaunchesList
           launches={searchedLaunches ? searchedLaunches : allLaunches}
+          onClick={handleOnClick}
           onChange={handleOnChange}
         />
       </ListSection>

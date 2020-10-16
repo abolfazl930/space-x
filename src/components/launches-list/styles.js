@@ -12,7 +12,7 @@ export const TextFieldHlder = styled.div`
 `;
 export const Row = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.border.borderColor2};
-  /* padding: ${(props) => props.theme.dimen.small} 0; */
+  cursor: pointer;
   height: 48px;
 `;
 

@@ -14,5 +14,11 @@ export default {
         model,
         singleMode,
       }),
+    detail: async (model) =>
+      await get({
+        api: "v3/launches",
+        model,
+        singleMode: true,
+      }),
   },
 };

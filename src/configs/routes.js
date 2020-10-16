@@ -15,6 +15,13 @@ const routes = [
     component: () => lazy(() => import("../pages/launches")),
     visibleIn: ["header"],
   },
+  {
+    title: "inner",
+    path: "/details/:slug",
+    exact: true,
+    component: () => lazy(() => import("../pages/inner")),
+    visibleIn: [""],
+  },
 ];
 
 export default routes;

@@ -27,6 +27,9 @@ function LaunchesList(props) {
     props.onChange && props.onChange(inputVal);
   }, [inputVal]);
 
+  const handleOnClick = (id) => () => {
+    props.onClick && props.onClick(id);
+  };
   return (
     <Div>
       <CustomContainer>
@@ -47,6 +50,7 @@ function LaunchesList(props) {
               <Row
                 className="d-flex align-items-center"
                 key={launch.flight_number}
+                onClick={handleOnClick(launch.flight_number)}
               >
                 <Col1>{getTime(launch.launch_date_unix)}</Col1>
                 <Col2 className="d-flex">{launch.launch_site.site_name}</Col2>
