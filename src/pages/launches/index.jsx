@@ -1,10 +1,12 @@
-import { getByLabelText } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
+import { ModalActions } from "../../context/actions/modal-actions";
+import services from "../../services";
+
 import CustomContainer from "../../components/shared/custom-continer";
 import ArrowDownIcon from "../../components/shared/svg/arrow-down";
 import Title from "../../components/shared/title";
-import { ModalActions } from "../../context/actions/modal-actions";
-import services from "../../services";
+import LaunchesList from "../../components/launches-list";
+
 import {
   StyledFullPageWrapper,
   TextBox,
@@ -58,7 +60,11 @@ function Luanches(props) {
           <ArrowDownIcon width="30px" fill="#000" />
         </ArrowHolder>
       </StyledFullPageWrapper>
-      <ListSection>{/* <LaunchesList/> */}</ListSection>
+      <ListSection>
+        <LaunchesList
+          launches={searchedLaunches ? setAllLaunches : allLaunches}
+        />
+      </ListSection>
     </LuancPage>
   );
 }

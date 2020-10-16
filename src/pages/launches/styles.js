@@ -25,4 +25,6 @@ export const ArrowHolder = styled.div`
   width: 100%;
 `;
 
-export const ListSection = styled.div``;
+export const ListSection = styled.div`
+  min-height: 100vh;
+`;
