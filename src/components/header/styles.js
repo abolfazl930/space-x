@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderElm = styled.header`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 100;
@@ -16,13 +16,16 @@ export const Nav = styled.nav`
 `;
 
 export const Menu = styled.ul`
-  margin: 0 48px;
+  margin: 0 12px;
   display: flex;
+  @media (min-width: 576px) {
+    margin: 0 48px;
+  }
 `;
 export const MenuItem = styled.li`
-  margin: 0 12px;
+  margin: 0 8px;
   & a {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -31,10 +34,19 @@ export const MenuItem = styled.li`
       text-decoration: none;
     }
   }
+  @media (min-width: 576px) {
+    margin: 0 12px;
+    & a {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Logo = styled.p`
   color: ${(props) => props.theme.text.textColor1};
   font-weight: ${(props) => props.theme.font.weight.bold};
-  font-size: ${(props) => props.theme.font.size.secondTitle};
+  font-size: 26px;
+  @media (min-width: 576px) {
+    font-size: ${(props) => props.theme.font.size.secondTitle};
+  }
 `;
