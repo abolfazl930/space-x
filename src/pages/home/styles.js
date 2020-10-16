@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import bgImg from "../../assets/images/main-bg.webp";
 import Title from "../../components/shared/title";
-import PageWrapper from "../../components/shared/page-wrapper";
+import FullPageWrapper from "../../components/shared/full-page-wrapper";
 
-export const StyledPageWrapper = styled(PageWrapper)`
+export const HomePage = styled.section``;
+
+export const StyledFullPageWrapper = styled(FullPageWrapper)`
   background-image: url(${bgImg});
 `;
 export const InnerContainer = styled.div`

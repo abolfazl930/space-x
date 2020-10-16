@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Section = styled.section`
+export const Div = styled.section`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

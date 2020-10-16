@@ -1,19 +1,55 @@
-import React from "react";
+import { getByLabelText } from "@testing-library/react";
+import React, { useEffect, useState } from "react";
 import CustomContainer from "../../components/shared/custom-continer";
 import ArrowDownIcon from "../../components/shared/svg/arrow-down";
 import Title from "../../components/shared/title";
 import { ModalActions } from "../../context/actions/modal-actions";
-import { StyledPageWrapper, TextBox, StyledTitle, ArrowHolder } from "./styles";
+import services from "../../services";
+import {
+  StyledFullPageWrapper,
+  TextBox,
+  StyledTitle,
+  ArrowHolder,
+  LuancPage,
+  ListSection,
+} from "./styles";
 
-function AboutUs(props) {
+function Luanches(props) {
+  const [allLaunches, setAllLaunches] = useState(null);
+  const [searchedLaunches, setSearchedLaunches] = useState(null);
+
+  const pastLuanches = "past";
+  const upcomingLauches = "upcoming";
+
+  useEffect(() => {
+    getLauches(pastLuanches, { start: "2018-01-01", end: "2020-01-01" });
+  }, []);
+
+  const getLauches = async (LuanchTime, model, singleMode) => {
+    try {
+      let res;
+      if (LuanchTime === pastLuanches) {
+        res = await services.launch.past(model, singleMode);
+      }
+      if (LuanchTime === upcomingLauches) {
+        res = await services.launch.upcoming(model, singleMode);
+      }
+      console.log("res", res.data);
+      setAllLaunches(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   //   console.log(ModalActions());
   // const { dispatchOpenModal } = ModalActions();
   // const test = () => {
   //   dispatchOpenModal();
   // };
+
   return (
-    <>
-      <StyledPageWrapper className="d-flex justify-content-center align-items-center">
+    <LuancPage>
+      <StyledFullPageWrapper className="d-flex justify-content-center align-items-center">
         <TextBox className="d-flex flex-column justify-content-center align-items-center">
           <StyledTitle size="xLarge">Falcon Heavy</StyledTitle>
           <Title size="medium">The world’s most powerful rocket</Title>
@@ -21,10 +57,10 @@ function AboutUs(props) {
         <ArrowHolder className="d-flex justify-content-center align-items-center">
           <ArrowDownIcon width="30px" fill="#000" />
         </ArrowHolder>
-      </StyledPageWrapper>
-      ssssssssssss
-    </>
+      </StyledFullPageWrapper>
+      <ListSection>{/* <LaunchesList/> */}</ListSection>
+    </LuancPage>
   );
 }
 
-export default AboutUs;
+export default Luanches;

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import CustomContainer from "../../components/shared/custom-continer";
 
 import {
-  StyledPageWrapper,
+  HomePage,
+  StyledFullPageWrapper,
   InnerContainer,
   TextBox,
   StyledTitle,
@@ -16,8 +17,8 @@ function Home(props) {
   // const modalInfo = useModalContext();
   // console.log("m", modalInfo);
   return (
-    <>
-      <StyledPageWrapper>
+    <HomePage>
+      <StyledFullPageWrapper>
         <CustomContainer>
           <InnerContainer>
             <TextBox>
@@ -29,8 +30,8 @@ function Home(props) {
             </TextBox>
           </InnerContainer>
         </CustomContainer>
-      </StyledPageWrapper>
-    </>
+      </StyledFullPageWrapper>
+    </HomePage>
   );
 }
 

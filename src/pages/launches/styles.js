@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import bgImg from "../../assets/images/launch-bg.webp";
-import PageWrapper from "../../components/shared/page-wrapper";
+import FullPageWrapper from "../../components/shared/full-page-wrapper";
 import Title from "../../components/shared/title";
 
-export const StyledPageWrapper = styled(PageWrapper)`
+export const LuancPage = styled.section``;
+
+export const StyledFullPageWrapper = styled(FullPageWrapper)`
   background-image: url(${bgImg});
 `;
 
@@ -22,3 +24,5 @@ export const ArrowHolder = styled.div`
   height: 100px;
   width: 100%;
 `;
+
+export const ListSection = styled.div``;
