@@ -1,15 +1,10 @@
 import styled from "styled-components";
-import bgImg from "../../assets/images/main-bg.jpg";
+import bgImg from "../../assets/images/main-bg.webp";
 import Title from "../../components/shared/title";
+import PageWrapper from "../../components/shared/page-wrapper";
 
-export const Section = styled.section`
+export const StyledPageWrapper = styled(PageWrapper)`
   background-image: url(${bgImg});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  padding-top: 100px;
 `;
 export const InnerContainer = styled.div`
   position: relative;

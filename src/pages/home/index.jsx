@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 import CustomContainer from "../../components/shared/custom-continer";
 
-import { Section, InnerContainer, TextBox, StyledTitle } from "./styles";
+import {
+  StyledPageWrapper,
+  InnerContainer,
+  TextBox,
+  StyledTitle,
+} from "./styles";
 import Button from "../../components/shared/button";
 
 function Home(props) {
@@ -12,7 +17,7 @@ function Home(props) {
   // console.log("m", modalInfo);
   return (
     <>
-      <Section>
+      <StyledPageWrapper>
         <CustomContainer>
           <InnerContainer>
             <TextBox>
@@ -24,7 +29,7 @@ function Home(props) {
             </TextBox>
           </InnerContainer>
         </CustomContainer>
-      </Section>
+      </StyledPageWrapper>
     </>
   );
 }

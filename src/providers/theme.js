@@ -7,9 +7,11 @@ export function Theme() {
   };
   const font = {
     size: {
+      small: "14px",
       firstTitle: "20px",
       secondTitle: "48px",
       btn: "18px",
+      xLarge: "100px",
     },
     weight: {
       light: "300",
@@ -17,7 +19,12 @@ export function Theme() {
       bold: "bold",
     },
   };
-  const dimen = {};
+  const dimen = {
+    small: "12px",
+    medium: "24px",
+    large: "36px",
+    xLarge: "48px",
+  };
   const dark = {
     mode: "dark",
     bg: {
@@ -43,5 +50,6 @@ export function Theme() {
   return {
     ...dark,
     font,
+    dimen,
   };
 }
