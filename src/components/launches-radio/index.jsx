@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import CustomContainer from "../shared/custom-continer";
-import Radios from "../shared/radios";
+import RadioGroup from "../shared/radio-group";
 
-import { RadioHolder } from "./styles";
+import { RadioHolder, Text } from "./styles";
 
 function LaunchesRadio(props) {
   const [radioData, setRadioData] = useState([
     {
-      label: "past",
-      value: "fa",
-      name: "lang",
+      label: "past launches",
+      value: "past",
+      name: "launches time",
       checked: true,
     },
     {
-      label: "upcoming",
-      value: "en",
-      name: "lang",
+      label: "upcoming launches",
+      value: "upcoming",
+      name: "launches time",
       checked: false,
     },
   ]);
@@ -29,15 +29,15 @@ function LaunchesRadio(props) {
       return [...state];
     });
   };
-
+  useEffect(() => {
+    let x = radioData.find((item) => item.checked === true);
+    props.onChange(x.value);
+  }, [radioData]);
   return (
     <CustomContainer>
       <RadioHolder>
-        <Radios
-          data={radioData}
-          onChange={handleRadioOnChange}
-          changeDir={false}
-        />
+        <Text>select launces time:</Text>
+        <RadioGroup data={radioData} onChange={handleRadioOnChange} />
       </RadioHolder>
     </CustomContainer>
   );

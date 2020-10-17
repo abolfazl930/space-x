@@ -71,9 +71,18 @@ function Luanches(props) {
     setSearchedLaunches(searchArr);
   };
 
+  const handleRadioOnChange = (value) => {
+    if (allLaunches) {
+      if (value === pastLuanches)
+        getLauches(value, { start: "2018-01-01", end: "2020-01-01" });
+      if (value === upcomingLauches) getLauches(value);
+    }
+  };
+
   const handleOnClick = (id) => {
     history.push(`/details/${id}`);
   };
+
   //   console.log(ModalActions());
   // const { dispatchOpenModal } = ModalActions();
   // const test = () => {
@@ -93,7 +102,7 @@ function Luanches(props) {
       </StyledFullPageWrapper>
       <ListSection>
         <LaunchesSearch onChange={handleOnChange} />
-        <LaunchesRadio />
+        <LaunchesRadio onChange={handleRadioOnChange} />
         <LaunchesList
           launches={searchedLaunches ? searchedLaunches : allLaunches}
           onClick={handleOnClick}
