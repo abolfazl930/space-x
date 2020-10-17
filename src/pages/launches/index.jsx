@@ -6,8 +6,9 @@ import services from "../../services";
 import CustomContainer from "../../components/shared/custom-continer";
 import ArrowDownIcon from "../../components/shared/svg/arrow-down";
 import Title from "../../components/shared/title";
-import LaunchesList from "../../components/launches-list";
 import LaunchesSearch from "../../components/launches-search";
+import LaunchesRadio from "../../components/launches-radio";
+import LaunchesList from "../../components/launches-list";
 
 import {
   StyledFullPageWrapper,
@@ -92,6 +93,7 @@ function Luanches(props) {
       </StyledFullPageWrapper>
       <ListSection>
         <LaunchesSearch onChange={handleOnChange} />
+        <LaunchesRadio />
         <LaunchesList
           launches={searchedLaunches ? searchedLaunches : allLaunches}
           onClick={handleOnClick}
