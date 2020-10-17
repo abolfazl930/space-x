@@ -7,7 +7,6 @@ import CustomContainer from "../shared/custom-continer";
 import { HeaderElm, Nav, Menu, MenuItem, Logo } from "./styles";
 
 function Header(props) {
-  console.log("pppprops", props);
   return (
     <HeaderElm>
       <CustomContainer>
