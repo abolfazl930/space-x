@@ -7,6 +7,7 @@ import CustomContainer from "../../components/shared/custom-continer";
 import ArrowDownIcon from "../../components/shared/svg/arrow-down";
 import Title from "../../components/shared/title";
 import LaunchesList from "../../components/launches-list";
+import LaunchesSearch from "../../components/launches-search";
 
 import {
   StyledFullPageWrapper,
@@ -90,10 +91,10 @@ function Luanches(props) {
         </ArrowHolder>
       </StyledFullPageWrapper>
       <ListSection>
+        <LaunchesSearch onChange={handleOnChange} />
         <LaunchesList
           launches={searchedLaunches ? searchedLaunches : allLaunches}
           onClick={handleOnClick}
-          onChange={handleOnChange}
         />
       </ListSection>
     </LuancPage>

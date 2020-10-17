@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CustomContainer from "../shared/custom-continer";
 import { getTime } from "../../utils/get-time";
 
-import {
-  Div,
-  TextFieldHlder,
-  List,
-  Row,
-  Head1,
-  Head2,
-  Col1,
-  Col2,
-} from "./styles";
-import TextField from "../shared/text-field";
+import { Div, List, Row, Head1, Head2, Col1, Col2 } from "./styles";
 
 function LaunchesList(props) {
   const { launches } = props;
-
-  const [inputVal, setInputVal] = useState("");
-
-  const handleChangeInput = (e) => {
-    setInputVal(e.target.value);
-  };
-
-  useEffect(() => {
-    props.onChange && props.onChange(inputVal);
-  }, [inputVal]);
 
   const handleOnClick = (id) => () => {
     props.onClick && props.onClick(id);
@@ -34,13 +14,6 @@ function LaunchesList(props) {
     <Div>
       <CustomContainer>
         <List>
-          <TextFieldHlder>
-            <TextField
-              placeholder="search by site name"
-              value={inputVal}
-              onChange={handleChangeInput}
-            />
-          </TextFieldHlder>
           <Row className="d-flex align-items-center">
             <Head1>time</Head1>
             <Head2 className="d-flex">site name</Head2>

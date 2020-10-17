@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
-export const Div = styled.div`
-  color: white;
-`;
+export const Div = styled.div``;
 
 export const List = styled.div`
-  padding-top: ${(props) => props.theme.dimen.large};
+  /* padding-top: ${(props) => props.theme.dimen.large}; */
 `;
-export const TextFieldHlder = styled.div`
-  margin-bottom: ${(props) => props.theme.dimen.medium};
-`;
+
 export const Row = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.border.borderColor2};
   cursor: pointer;
