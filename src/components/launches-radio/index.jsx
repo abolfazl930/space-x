@@ -30,8 +30,8 @@ function LaunchesRadio(props) {
     });
   };
   useEffect(() => {
-    let x = radioData.find((item) => item.checked === true);
-    props.onChange(x.value);
+    let findItem = radioData.find((item) => item.checked === true);
+    props.onChange(findItem.value);
   }, [radioData]);
   return (
     <CustomContainer>

@@ -22,6 +22,7 @@ export const StyledTitle = styled(Title)`
 `;
 
 export const DetaliSection = styled.div`
+  position: relative;
   padding-top: ${(props) => props.theme.dimen.large};
 `;
 export const TextHolder = styled.div``;

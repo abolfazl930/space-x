@@ -8,6 +8,7 @@ function RadioGroup(props) {
     <Wrapper>
       {data.map((item, index) => (
         <CoreRadio
+          key={index}
           name={item.name}
           value={item.value}
           checked={item.checked}

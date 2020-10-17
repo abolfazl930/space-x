@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ModalActions } from "../../context/actions/modal-actions";
+// import { ModalActions } from "../../context/actions/modal-actions";
 import services from "../../services";
 
-import CustomContainer from "../../components/shared/custom-continer";
 import ArrowDownIcon from "../../components/shared/svg/arrow-down";
 import Title from "../../components/shared/title";
 import LaunchesSearch from "../../components/launches-search";
 import LaunchesRadio from "../../components/launches-radio";
 import LaunchesList from "../../components/launches-list";
+import LoaderContainer from "../../components/shared/loader-container";
 
 import {
   StyledFullPageWrapper,
@@ -24,6 +24,7 @@ function Luanches(props) {
 
   const [allLaunches, setAllLaunches] = useState(null);
   const [searchedLaunches, setSearchedLaunches] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const pastLuanches = "past";
   const upcomingLauches = "upcoming";
@@ -34,6 +35,7 @@ function Luanches(props) {
 
   const getLauches = async (LuanchTime, model, singleMode) => {
     try {
+      setIsLoading(true);
       let res;
       if (LuanchTime === pastLuanches) {
         res = await services.launch.past(model, singleMode);
@@ -41,7 +43,7 @@ function Luanches(props) {
       if (LuanchTime === upcomingLauches) {
         res = await services.launch.upcoming(model, singleMode);
       }
-      console.log("res", res.data);
+      setIsLoading(false);
       setAllLaunches(res.data);
     } catch (error) {
       console.error(error);
@@ -74,8 +76,8 @@ function Luanches(props) {
   const handleRadioOnChange = (value) => {
     if (allLaunches) {
       if (value === pastLuanches)
-        getLauches(value, { start: "2018-01-01", end: "2020-01-01" });
-      if (value === upcomingLauches) getLauches(value);
+        getLauches(pastLuanches, { start: "2018-01-01", end: "2020-01-01" });
+      if (value === upcomingLauches) getLauches(upcomingLauches);
     }
   };
 
@@ -83,7 +85,6 @@ function Luanches(props) {
     history.push(`/details/${id}`);
   };
 
-  //   console.log(ModalActions());
   // const { dispatchOpenModal } = ModalActions();
   // const test = () => {
   //   dispatchOpenModal();
@@ -101,8 +102,9 @@ function Luanches(props) {
         </ArrowHolder>
       </StyledFullPageWrapper>
       <ListSection>
-        <LaunchesSearch onChange={handleOnChange} />
+        <LoaderContainer isLoading={isLoading} />
         <LaunchesRadio onChange={handleRadioOnChange} />
+        <LaunchesSearch onChange={handleOnChange} />
         <LaunchesList
           launches={searchedLaunches ? searchedLaunches : allLaunches}
           onClick={handleOnClick}

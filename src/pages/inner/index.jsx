@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CustomContainer from "../../components/shared/custom-continer";
 
-import Title from "../../components/shared/title";
+import LoaderContainer from "../../components/shared/loader-container";
 import services from "../../services";
 
 import {
@@ -19,18 +19,21 @@ function Inner(props) {
   let { slug } = useParams();
 
   const [launch, setLaunch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getLaunch();
   }, []);
 
   const getLaunch = async () => {
+    setIsLoading(true);
     try {
       let res = await services.launch.detail(slug);
       setLaunch(res.data);
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -41,6 +44,7 @@ function Inner(props) {
         </TextBox>
       </StyledFullPageWrapper>
       <DetaliSection>
+        <LoaderContainer isLoading={isLoading} />
         <CustomContainer>
           <TextHolder className="d-flex justify-content-center">
             <Text>{launch.details}</Text>

@@ -26,6 +26,7 @@ export const ArrowHolder = styled.div`
 `;
 
 export const ListSection = styled.div`
-  padding-top: ${(props) => props.theme.dimen.large};
   min-height: 100vh;
+  position: relative;
+  padding-top: ${(props) => props.theme.dimen.large};
 `;
